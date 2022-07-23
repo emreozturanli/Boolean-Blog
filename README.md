@@ -1,6 +1,6 @@
 # Blog App with React & Firebase
 
-[See the page](https://boolean-blog-firebase.vercel.app/)
+[See the page](https://boolean-blog.vercel.app/)
 
 * I made a Blog App with React & Firebase(for Database and Authentication).
 * Users can add, delete and edit blog posts.
