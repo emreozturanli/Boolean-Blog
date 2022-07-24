@@ -28,7 +28,8 @@ const BlogContextProvider = ({children}) => {
             image:image,
             author: user.displayName,
             userId: user.uid,
-            favourite: '0'
+            favourite: '0',
+            likes: ['']
         })
         // console.log(db);
         setTitle('')
@@ -63,6 +64,7 @@ const BlogContextProvider = ({children}) => {
                 content:updateInfo.content,
                 image:updateInfo.image,
                 favourite:updateInfo.favourite,
+                likes:updateInfo.likes,
                 author: user.displayName,
                 userId: user.uid
             })
@@ -77,10 +79,16 @@ const BlogContextProvider = ({children}) => {
     }
 
     const increaseFav = (post) =>{
-        update(ref(db, 'Blog/' + post.id), {
+       
+        if(!Object.values(post.likes).includes(user.uid)){         
+            update(ref(db, 'Blog/' + post.id), {
             ...post,
-            favourite: +post.favourite + 1
+            favourite: +post.favourite + 1,
+            likes: [...post.likes, user.uid]
         })
+        }else{
+            toast.error('You can only like once a single post!!!')
+        }
     }
 
   return (

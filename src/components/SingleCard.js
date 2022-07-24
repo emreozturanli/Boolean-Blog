@@ -18,16 +18,16 @@ const SingleCard = (props) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const {author, content, title, image, id, userId,favourite} = props.post
+    const {author, content, title, image, id, userId,favourite,likes} = props.post
     
     const handleEdit = () => {
-        setUpdateInfo({ author: author, title: title, image: image, id: id, content: content, favourite:favourite })
+        setUpdateInfo({ author: author, title: title, image: image, id: id, content: content, favourite:favourite, likes:likes })
         setEditPostOpen(true)
     }
 
     const handleDetails = () => {
         if (user) {
-            navigate(`/details/${title.split(' ').join('-')}`, { state: { author, content, title, image,favourite } })
+            navigate(`/details/${title.split(' ').join('-')}`, { state: { author, content, title, image,favourite,likes } })
         } else {
             toast.error('You Should Login to See Details')
         }
