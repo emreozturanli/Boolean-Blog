@@ -3,7 +3,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Grid } from '@mui/material';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { BlogContext } from '../context/BlogContext';
 import { AuthContext } from '../context/AuthContext';
 import EditPost from '../components/EditPost';
@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const randomImage = 'https://picsum.photos/350/200'
 
 const SingleCard = (props) => {
+    const [isValid,setIsValid] = useState(false)
     const { deletePost, setEditPostOpen, setUpdateInfo,increaseFav } = useContext(BlogContext)
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -34,6 +35,21 @@ const SingleCard = (props) => {
 
     }
 
+    function checkImage(url) {
+        var image = new Image();
+        image.onload = function() {
+          if (this.width > 0) {
+            setIsValid(true)
+          }
+        }
+        image.onerror = function() {
+            setIsValid(false)
+        }
+        image.src = url;
+      }
+
+      checkImage(image);
+
     return (
         <Grid item >
             <Card sx={{ width: 345, height:360, }}>
@@ -43,7 +59,7 @@ const SingleCard = (props) => {
                         // height="140"
                         // width='345'
                         sx={{height:'140px', width:'100%', objectFit:'contain'}}
-                        image={image !== '' ? image : randomImage}
+                        image={ isValid ? image : randomImage }
                         alt={title}
                     />
                     <CardContent>
