@@ -28,7 +28,7 @@ const SingleCard = (props) => {
 
     const handleDetails = () => {
         if (user) {
-            navigate(`/details/${title.split(' ').join('-')}`, { state: { author, content, title, image,favourite,likes } })
+            navigate(`/details/${title.split(' ').join('-')}`, { state: { id, userId,author, content, title, image,favourite,likes } })
         } else {
             toast.error('You Should Login to See Details')
         }
@@ -58,7 +58,7 @@ const SingleCard = (props) => {
                         component="img"
                         // height="140"
                         // width='345'
-                        sx={{height:'140px', width:'100%', objectFit:'contain'}}
+                        sx={{height:'140px', width:'345', objectFit:'fill'}}
                         image={ isValid ? image : randomImage }
                         alt={title}
                     />

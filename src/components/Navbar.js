@@ -69,7 +69,7 @@ export default function PrimarySearchAppBar() {
   if(search === ''){
     toast.error('Please type something')
   }else{
-       const searchedPosts = posts.filter((e)=> e.title.includes(search));
+       const searchedPosts = posts.filter((e)=> e.title.toLowerCase().includes(search.toLowerCase()));
     navigate('/search', {state: searchedPosts})
   }
  

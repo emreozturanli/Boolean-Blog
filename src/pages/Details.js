@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -9,17 +9,19 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-// import ShareIcon from '@mui/icons-material/Share';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+import ReplyAllIcon from '@mui/icons-material/ReplyAll';
 
 
 const randomImage = 'https://picsum.photos/600/400'
 
 export default function Details() {
   const { state } = useLocation()
+  const navigate = useNavigate()
 
   return (
-    <Card sx={{ maxWidth: 600, paddingTop: '5rem', margin: 'auto' }}>
+    <div style={{ minHeight:'100vh', padding: '5rem 0'}}>
+    <Card sx={{ maxWidth: 600, width:'90%', margin: 'auto' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: blue[500] }} aria-label="recipe">
@@ -29,7 +31,6 @@ export default function Details() {
         title={
           <Typography variant="h4">{state.title.toUpperCase()}</Typography>
         }
-      // subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
@@ -43,14 +44,16 @@ export default function Details() {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton  sx={{cursor:'default'}}>
-          <FavoriteIcon sx={{marginLeft:'auto', color: state.favourite !== '0' && 'red'}}/>
+        <IconButton>
+          <ReplyAllIcon sx={{ color:'orangered'}} onClick={()=> navigate(-1)}/>
+          {/* <FavoriteIcon sx={{marginLeft:'auto', color: state.favourite !== '0' && 'red'}}/> */}
         </IconButton>
-        <Typography variant='h6'>
+        {/* <Typography variant='h6'>
           {state.favourite !== '0' ? state.favourite : null}
-        </Typography>
+        </Typography> */}
 
       </CardActions>
     </Card>
+    </div>
   );
 }

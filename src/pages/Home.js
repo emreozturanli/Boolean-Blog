@@ -10,9 +10,9 @@ const Home = () => {
   const {posts} = useContext(BlogContext)
   
   return (
-    <div style={{ marginTop: '5rem'}}>
+    <div style={{ marginTop: '3rem', padding:'3rem 0', display:'grid', placeItems:'center'}}>
       <Grid container spacing={4} justifyContent="center"
-  alignItems="center">
+  alignItems="center" maxWidth={1500} >
         {
           posts.map((post,i)=>{
             return < SingleCard key={i}  post={post}/>

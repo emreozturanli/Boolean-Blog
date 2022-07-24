@@ -79,7 +79,7 @@ const BlogContextProvider = ({children}) => {
     }
 
     const increaseFav = (post) =>{
-       
+       if(user){
         if(!Object.values(post.likes).includes(user.uid)){         
             update(ref(db, 'Blog/' + post.id), {
             ...post,
@@ -87,7 +87,10 @@ const BlogContextProvider = ({children}) => {
             likes: [...post.likes, user.uid]
         })
         }else{
-            toast.error('You can only like once a single post!!!')
+            toast.error('You can only like a single post once!!!')
+        }
+        }else{
+            toast.error('You should login first')
         }
     }
 

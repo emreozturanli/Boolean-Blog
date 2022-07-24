@@ -11,7 +11,7 @@ const About = () => {
       <div>
       <Container sx={{ paddingTop: '6rem', textAlign: 'center', height:'100vh'}}>
         <Paper variant="outlined" sx={{ padding: '1rem', margin: 'auto', maxWidth: '600px',  }} >
-          <Typography variant='h3'>
+          <Typography variant='h3' sx={{color:'#23a02b'}}>
             Tools Used In This Site
           </Typography>
           <hr />
