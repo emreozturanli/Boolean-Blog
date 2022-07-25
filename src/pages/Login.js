@@ -13,11 +13,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <Container sx={{height: '100vh'}} >
+    <Container sx={{height: '100vh', paddingTop:'6rem'}} >
 
       <form
         onSubmit={(e) => login(e, navigate)}
-        style={{ maxWidth: '500px', width: '100%', margin: 'auto', textAlign: 'center', padding:'6rem 0', background:'rgba(255,255,255,0.3)' }}>
+        style={{ maxWidth: '350px', width: '100%', margin: 'auto', textAlign: 'center', padding:'4rem 0', background:'rgba(255,255,255,0.7)', borderRadius:'30px'}}>
         <TextField
           id="email"
           label="Email"
