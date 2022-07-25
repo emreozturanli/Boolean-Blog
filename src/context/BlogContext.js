@@ -52,7 +52,6 @@ const BlogContextProvider = ({children}) => {
                     ...data[id]
                 })
             }
-            // console.log(noteArr);
             setPosts(blogArr);
         })
     }, [])

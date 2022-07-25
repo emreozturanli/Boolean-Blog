@@ -8,6 +8,7 @@ import NotFound from '../pages/NotFound'
 import Navbar from '../components/Navbar'
 import Details from "../pages/Details";
 import Search from "../pages/Search";
+import ForgotPassword from "../pages/ForgotPassword";
 
 
 const AppRouter = () => {
@@ -22,6 +23,7 @@ const AppRouter = () => {
                 <Route path="/myposts" element={<MyPosts/>} />
                 <Route path="/search" element={<Search/>} />
                 <Route path="/details/:title" element={<Details/>} />
+                <Route path="/forgot-password" element={<ForgotPassword/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
         </BrowserRouter>
