@@ -15,7 +15,7 @@ const ForgotPassword = () => {
 
             <form
                 onSubmit={(e) => resetPassword(e, navigate)}
-                style={{ maxWidth: '350px', width: '100%', margin: 'auto', textAlign: 'center', padding: '4rem 0', background: 'rgba(255,255,255,0.7)', borderRadius: '30px' }}>
+                style={{ maxWidth: '350px', width: '100%', margin: 'auto', textAlign: 'center', padding: '4rem 0', background: '#ffffffff', borderRadius: '30px' }}>
                 <TextField
                     id="email"
                     label="Email"
