@@ -5,7 +5,6 @@ import { Button, Link } from '@mui/material';
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
 import { NavLink, useNavigate } from 'react-router-dom';
-// import Header from '../components/Header';
 import GoogleIcon from '@mui/icons-material/Google';
 
 const Login = () => {
@@ -17,7 +16,7 @@ const Login = () => {
 
       <form
         onSubmit={(e) => login(e, navigate)}
-        style={{ maxWidth: '350px', width: '100%', margin: 'auto', textAlign: 'center', padding: '4rem 0', background: 'rgba(255,255,255,0.7)', borderRadius: '30px' }}>
+        style={{ maxWidth: '350px', width: '100%', margin: 'auto', textAlign: 'center', padding: '4rem 0', background: '#ffffffff', borderRadius: '30px' }}>
         <TextField
           id="email"
           label="Email"

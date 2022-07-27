@@ -15,6 +15,7 @@ const BlogContextProvider = ({children}) => {
     const [editPostOpen, setEditPostOpen] = useState(false)
     const [posts,setPosts] = useState([])
     const [updateInfo, setUpdateInfo] = useState({});
+    const [search, setSearch] = useState('')
 
     const writeToDatabase = () => {
         if(title && content){
@@ -111,7 +112,9 @@ const BlogContextProvider = ({children}) => {
         editBlogPost,
         updateInfo, 
         setUpdateInfo,
-        increaseFav
+        increaseFav,
+        search, 
+        setSearch
     }}>
         {children}
     </BlogContext.Provider>

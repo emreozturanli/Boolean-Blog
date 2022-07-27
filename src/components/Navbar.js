@@ -60,20 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   // PAGE STATES FUNCTIONALITIES HERE
   const navigate = useNavigate()
-    const { logout,user } = React.useContext(AuthContext)
-    const { setNewPostOpen,posts } = React.useContext(BlogContext)
-    const [search, setSearch] = React.useState('')
-  
-  const handleSearch = (e) => {
-  e.preventDefault()
-  if(search === ''){
-    toast.error('Please type something')
-  }else{
-       const searchedPosts = posts.filter((e)=> e.title.toLowerCase().includes(search.toLowerCase()));
-    navigate('/search', {state: searchedPosts})
-  }
- 
-  }
+    const { logout,user} = React.useContext(AuthContext)
+    const { setNewPostOpen,search, setSearch } = React.useContext(BlogContext)
 
   const loginClick = () => {
     setAnchorEl(null);
@@ -159,7 +147,9 @@ export default function PrimarySearchAppBar() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <form onSubmit={handleSearch}>
+            <form 
+            // onSubmit={handleSearch}
+            >
               <StyledInputBase
                 placeholder="Search for a post..."
                 inputProps={{ 'aria-label': 'search' }}
