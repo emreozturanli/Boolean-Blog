@@ -9,8 +9,8 @@ import { useNavigate } from 'react-router-dom';
 function NotFound() {
     const navigate = useNavigate()
   return (
-    <div style={{display:'grid', placeItems:'center', marginTop:'8rem'}}>
-    <Card sx={{ maxWidth: 345 }}>
+    <div style={{display:'grid', placeItems:'center', marginTop:'3rem'}}>
+    <Card sx={{ maxWidth: 345, marginTop:'4rem'}}>
       <CardActionArea>
         <CardMedia
           component="img"
