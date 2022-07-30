@@ -63,7 +63,14 @@ const SingleCard = (props) => {
                         alt={title}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                        <Typography gutterBottom variant="h5" component="div" sx={{
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            display: '-webkit-box',
+                            WebkitLineClamp: '1',
+                            WebkitBoxOrient: 'vertical',
+                            height: '30px'
+                        }}>
                             {title}
                         </Typography>
                         <Typography gutterBottom variant="h6" component="h6">
